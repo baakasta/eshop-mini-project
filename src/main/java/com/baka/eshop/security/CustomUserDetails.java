@@ -1,5 +1,6 @@
 package com.baka.eshop.security;
 
+import com.baka.eshop.domain.entity.ActifEnum;
 import com.baka.eshop.domain.entity.User;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
@@ -42,5 +43,5 @@ public class CustomUserDetails implements UserDetails {
     public boolean isCredentialsNonExpired() { return true; }
 
     @Override
-    public boolean isEnabled() { return true; }
+    public boolean isEnabled() { return user.getActif() == ActifEnum.ACTIVE; }
 }
